@@ -30,6 +30,7 @@ namespace Test_Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -48,6 +49,8 @@ namespace Test_Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
